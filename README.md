@@ -63,47 +63,6 @@ The following lifecycle actions are available:
 
 ### Provisioning PowerShell V2 connector
 
-#### Field mapping
-
-|                              |                                                             | Create | Update | Enable | Disable |           |                                                                       |               |
-| ---------------------------- | ----------------------------------------------------------- | ------ | ------ | ------ | ------- | --------- | --------------------------------------------------------------------- | ------------- |
-| _Field_                      | _Mapped to value_                                           |        |        |        |         | _Type_    | _Options:_                                                            | _Description_ |
-| _Functie_                    | `$personContext.Person.Title.DisplayName`                   | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Huisnummer_toevoeging_ | `$personContext.Person.Personal.Address.HouseNumberEx`      | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Achternaam_                 | [_See complex mapping_](#familyname)                        | x      | x      | x      | x       | `Complex` | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Email_Prive_                | `$personContext.Person.Contact.Personal.Email`              | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _DatumOverlijden_            | x                                                           | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Telefoon_Werk_              | `$personContext.Person.Contact.Business.Phone.Fixed`        | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _DatumUitDienst_             | `$personContext.Person.PrimaryContract.EndDate`             | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _DatumInDienst_              | `$personContext.Person.PrimaryContract.StartDate`           | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Nationaliteit_              | x                                                           | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Geslacht_                   | `$personContext.Person.Details.Gender`                      | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Woonplaats_            | `$personContext.Person.Personal.Address.City`               | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Telefoon_Prive_Mobiel_      | `$personContext.Person.Contact.Personal.Phone.Mobile`       | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Tussenvoegsel_meisjesnaam_  | `$personContext.Person.Person.Name.FamilyNamePartnerPrefix` | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _PersoneelsNummer_           | `$personContext.Person.ExternalId`                          | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Woonplaats_            | `$personContext.Person.Personal.Address.City`               | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Postcode_              | `$personContext.Person.Personal.Address.PostalCode`         | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Straat_                | `$personContext.Person.Contact.Personal.Address.Street`     | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Huisnummer_            | `$personContext.Person.Personal.Address.HouseNumber`        | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Voornamen_                  | `$personContext.Person.Name.GivenName`                      | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Straat_                | `$personContext.Person.Contact.Personal.Address.Street`     | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Geboorteplaats_             | `$personContext.Person.Details.BirthLocality`               | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Huisnummer_            | `$personContext.Person.Personal.Address.HouseNumber`        | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Voorletters_                | `$personContext.Person.Name.Initials`                       | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Meisjesnaam_                | `$personContext.Person.Name.FamilyName`                     | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Geboorteland_               | x                                                           | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Woonland_              | `$personContext.Person.Personal.Address.Country`            | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Tussenvoegsel_              | `$personContext.Person.Person.Name.FamilyNamePrefix`        | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _GeboorteDatum_              | `$personContext.Person.Details.BirthDate`                   | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Email_Werk_                 | [_See complex mapping_](#mail)                              | x      | x      | x      | x       | `Complex` | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Woonland_              | `$personContext.Person.Personal.Address.Country`            | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Post_Postcode_              | `$personContext.Person.Personal.Address.PostalCode`         | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Huis_Huisnummer_toevoeging_ | `$personContext.Person.Personal.Address.HouseNumberEx`      | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Telefoon_Prive_             | `$personContext.Person.Contact.Personal.Phone.Fixed`        | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Roepnaam_                   | `$personContext.Person.Name.NickName`                       | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-| _Geboortenaam_               | `$personContext.Person.Name.NickName`                       | x      | x      | x      | x       | `Field`   | - Use in notifications: `false` <br> - Store in account data: `false` |               |
-
 ##### Complex mapping
 
 > [!IMPORTANT]
